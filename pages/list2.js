@@ -6,7 +6,7 @@ exports.create = function () {
         topLevel: false,
         title: "My Devices"
     }).on('backButtonPressed', function () {
-        require("./menu.js").create('menu.js').open();
+        require("./devices.js").create('devices.js').open();
     });
 
     var scrollView = new tabris.ScrollView({
@@ -36,7 +36,6 @@ exports.create = function () {
         opacity: 0.3
     }).appendTo(scrollView);
 
-
     var lists = [
         {
             id: "first",
@@ -54,9 +53,9 @@ exports.create = function () {
         itemText: function (list) {
             return list.name;
         },
-        selection: lists[0]
+        selection: lists[1]
     }).on("change:selection", function () {
-        require("./list2.js").create('list2.js').open();
+        require("./devices.js").create('devices.js').open();
     }).appendTo(scrollView);
 
 //end of header
@@ -206,50 +205,6 @@ exports.create = function () {
     }).appendTo(scrollView);
 //END
 
-//ForkLoop
-    new tabris.ImageView({
-        id: "dev4",
-        image: {src: "images/fork4.jpg"}
-    }).appendTo(scrollView);
-
-    new tabris.TextView({
-        id: "dev4info",
-        alignment: "left",
-        text: "Fork Loop 2103"
-    }).appendTo(scrollView);
-
-    new tabris.TextView({
-        id: "status4",
-        alignment: "left",
-        text: "Active"
-    }).appendTo(scrollView);
-
-    new tabris.TextView({
-        id: "warnings4",
-        alignment: "left",
-        text: "Device warnings"
-    }).appendTo(scrollView);
-
-    var messages4 = new tabris.TextView({
-        id: "messages4",
-        alignment: "left",
-        text: "Messages"
-    }).appendTo(scrollView);
-
-    new tabris.TextView({
-        id: "details4",
-        aligment: "left",
-        text: "Details...",
-        highlightOnTouch: true
-    }).on("tap", function () {
-        require("./fork4.js").create('fork4.js').open();
-    }).appendTo(scrollView);
-
-    new tabris.ImageView({
-        id: "line4",
-        image: {src: "images/joon.png"}
-    }).appendTo(scrollView);
-//END
 
     //support tray
     var trayHeight;
@@ -484,7 +439,6 @@ exports.create = function () {
                 messages.set("text", text1 || "No updates available");
                 messages2.set("text", text2 || "No updates available");
                 messages3.set("text", text3 || "No updates available");
-                messages4.set("text", text4 || "No updates available");
             }
         }
     }
@@ -533,14 +487,6 @@ exports.create = function () {
         "#details3": {layoutData: {left: "#dev3 5", top: "#messages3 2"}, font: "14px", textColor: "blue"},
         "#line3": {layoutData: {left: 0, right: 0, top: "#details3 6"}, opacity: 0.3},
 
-        //device 4
-        "#dev4": {layoutData: {left: 10, top: "#line3 5"}, width: 141, height: 124},
-        "#dev4info": {layoutData: {left: "#dev3 5", top: "#line3 5"}, font: "bold 18px"},
-        "#status4": {layoutData: {left: "#dev3 5", top: "#dev4info 2"}, font: "14px"},
-        "#warnings4": {layoutData: {left: "#dev3 5", top: "#status4 2"}, font: "14px"},
-        "#messages4": {layoutData: {left: "#dev3 5", top: "#warnings4 2"}, font: "14px"},
-        "#details4": {layoutData: {left: "#dev3 5", top: "#messages4 2"}, font: "14px", textColor: "blue"},
-        "#line4": {layoutData: {left: 0, right: 0, top: "#details4 6"}, opacity: 0.3}
     });
 
     return page;
