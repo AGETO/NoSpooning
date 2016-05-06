@@ -88,7 +88,7 @@ exports.create = function () {
         image: {src: "images/newdevice.jpg"},
         layoutData: {right: 46, top: "#device_d 2", width: 94, height: 106}
     }).on("tap", function () {
-        require("./codescanner.js").create('codescanner.js').open();
+        require("./register.js").create('register.js').open();
     }).appendTo(page);
 
     new tabris.TextView({

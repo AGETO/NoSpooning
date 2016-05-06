@@ -56,21 +56,20 @@ exports.create = function () {
     }).appendTo(page);
 
     function reDirect() {
-        var re = /lift/gi;
-        var re2 = /let/gi;
-        var str = "koer";
-        var str2 = "Do NOT Let Me Down";
 
-        if (str.search(re) == -1) {
+        var a = globalResult.text;
+        if (/Let/.test(a)) {
             require("./fork2_q.js").create("fork2_q.js").open();
-        } else if (str2.search(re2) == 0) {
+        } else if (/Lift/.test(a)) {
             require("./questions.js").create('questions.js').open();
         }
     }
 
+    var globalResult;
 
     function scanBarcode() {
         cordova.plugins.barcodeScanner.scan(function (result) {
+                globalResult = result;
                 resultView.set("text", result.cancelled ?
                     "<b>Scan cancelled</b>" :
                 "<b>Scan result:</b> " + result.text + " (" + result.format + ")");
