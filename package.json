@@ -1,0 +1,13 @@
+{
+  "name": "Prototype",
+  "description": "Prototype for a mobile app",
+  "main": "app.js",
+  "resources": [
+    {
+      "src": "index.js"
+    }
+  ],
+  "dependencies": {
+    "tabris": "^1.7.0"
+  }
+}
