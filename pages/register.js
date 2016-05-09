@@ -63,15 +63,6 @@ exports.create = function () {
         var b = globalResult.text;
         if (/Forket/.test(b)) {
             require("./fork3.js").create("fork3.js").open();
-        } else {
-            new tabris.TextView({
-                id: "exists",
-                text: "Device already exists!",
-                textColor: "red",
-                layoutData: {top: "prev() 20", left: 20, right: 20},
-                markupEnabled: true
-            }).appendTo(page);
-
         }
     }
 

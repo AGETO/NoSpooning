@@ -60,22 +60,22 @@ exports.create = function () {
 
 //end of header
 
-//LIFT ME UP
+    //DON'T LET ME DOWN
     new tabris.ImageView({
         id: "dev1",
-        image: {src: "images/fork1.jpg"}
+        image: {src: "images/fork2.jpg"}
     }).appendTo(scrollView);
 
     new tabris.TextView({
         id: "dev1info",
         alignment: "left",
-        text: "Lift Me Up"
+        text: "Do NOT\nLet Me Down"
     }).appendTo(scrollView);
 
     new tabris.TextView({
         id: "status",
         alignment: "left",
-        text: "Last lift:\n26.04.2016 14:20"
+        text: "Active"
     }).appendTo(scrollView);
 
     new tabris.TextView({
@@ -96,7 +96,7 @@ exports.create = function () {
         text: "Details...",
         highlightOnTouch: true
     }).on("tap", function () {
-        require("./fork1.js").create('fork1.js').open();
+        require("./fork2.js").create('fork2.js').open();
     }).appendTo(scrollView);
 
     new tabris.ImageView({
@@ -115,22 +115,22 @@ exports.create = function () {
         //}).on("select", function () {
     }).appendTo(page);
 
-//DON'T LET ME DOWN
+//NEVER FORKET
     new tabris.ImageView({
         id: "dev2",
-        image: {src: "images/fork2.jpg"}
+        image: {src: "images/fork3.jpg"}
     }).appendTo(scrollView);
 
     new tabris.TextView({
         id: "dev2info",
         alignment: "left",
-        text: "Do NOT\nLet Me Down"
+        text: "Never Forket"
     }).appendTo(scrollView);
 
     new tabris.TextView({
         id: "status2",
         alignment: "left",
-        text: "Active"
+        text: "Last lift:\n 29.04.2016 15:01"
     }).appendTo(scrollView);
 
     new tabris.TextView({
@@ -151,7 +151,7 @@ exports.create = function () {
         text: "Details...",
         highlightOnTouch: true
     }).on("tap", function () {
-        require("./fork2.js").create('fork2.js').open();
+        require("./fork3.js").create('fork3.js').open();
     }).appendTo(scrollView);
 
     new tabris.ImageView({
@@ -160,22 +160,23 @@ exports.create = function () {
     }).appendTo(scrollView);
 //END
 
-//NEVER FORKET
+
+    //LIFT ME UP
     new tabris.ImageView({
         id: "dev3",
-        image: {src: "images/fork3.jpg"}
+        image: {src: "images/fork1.jpg"}
     }).appendTo(scrollView);
 
     new tabris.TextView({
         id: "dev3info",
         alignment: "left",
-        text: "Never Forket"
+        text: "Lift Me Up"
     }).appendTo(scrollView);
 
     new tabris.TextView({
         id: "status3",
         alignment: "left",
-        text: "Last lift:\n 29.04.2016 15:01"
+        text: "Last lift:\n26.04.2016 14:20"
     }).appendTo(scrollView);
 
     new tabris.TextView({
@@ -196,7 +197,7 @@ exports.create = function () {
         text: "Details...",
         highlightOnTouch: true
     }).on("tap", function () {
-        require("./fork3.js").create('fork3.js').open();
+        require("./fork1.js").create('fork1.js').open();
     }).appendTo(scrollView);
 
     new tabris.ImageView({
@@ -204,6 +205,7 @@ exports.create = function () {
         image: {src: "images/joon.png"}
     }).appendTo(scrollView);
 //END
+
 
 
     //support tray
