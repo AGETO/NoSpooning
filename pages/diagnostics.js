@@ -1,11 +1,11 @@
-exports.create = function () {
+exports.create = function (apiBaseURL) {
 
 
     var page = new tabris.Page({
         title: "Device diagnostics",
         topLevel: false
     }).on('backButtonPressed', function () {
-        require("./devices.js").create('devices.js').open();
+        require("./devices.js").create(apiBaseURL).open();
     });
 
     //header
@@ -59,9 +59,11 @@ exports.create = function () {
 
         var a = globalResult.text;
         if (/Let/.test(a)) {
-            require("./fork2_q.js").create("fork2_q.js").open();
+            require("./fork2_q.js").create(apiBaseURL).open();
         } else if (/Lift/.test(a)) {
-            require("./questions.js").create('questions.js').open();
+            require("./questions.js").create(apiBaseURL).open();
+        } else if (/Forket/.test(a)) {
+            require("./fork3.js").create(apiBaseURL).open();
         }
     }
 

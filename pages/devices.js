@@ -1,4 +1,5 @@
-exports.create = function () {
+exports.create = function (apiBaseURL) {
+
 
     getDevices(1);
 
@@ -6,7 +7,7 @@ exports.create = function () {
         topLevel: false,
         title: "My Devices"
     }).on('backButtonPressed', function () {
-        require("./menu.js").create('menu.js').open();
+        require("./menu.js").create(apiBaseURL).open();
     });
 
     var scrollView = new tabris.ScrollView({
@@ -56,7 +57,7 @@ exports.create = function () {
         },
         selection: lists[0]
     }).on("change:selection", function () {
-        require("./list2.js").create('list2.js').open();
+        require("./list2.js").create(apiBaseURL).open();
     }).appendTo(scrollView);
 
 //end of header
@@ -97,7 +98,7 @@ exports.create = function () {
         text: "Details...",
         highlightOnTouch: true
     }).on("tap", function () {
-        require("./fork1.js").create('fork1.js').open();
+        require("./fork1.js").create(apiBaseURL).open();
     }).appendTo(scrollView);
 
     new tabris.ImageView({
@@ -152,7 +153,7 @@ exports.create = function () {
         text: "Details...",
         highlightOnTouch: true
     }).on("tap", function () {
-        require("./fork2.js").create('fork2.js').open();
+        require("./fork2.js").create(apiBaseURL).open();
     }).appendTo(scrollView);
 
     new tabris.ImageView({
@@ -197,7 +198,7 @@ exports.create = function () {
         text: "Details...",
         highlightOnTouch: true
     }).on("tap", function () {
-        require("./fork3.js").create('fork3.js').open();
+        require("./fork3.js").create(apiBaseURL).open();
     }).appendTo(scrollView);
 
     new tabris.ImageView({
@@ -242,7 +243,7 @@ exports.create = function () {
         text: "Details...",
         highlightOnTouch: true
     }).on("tap", function () {
-        require("./fork4.js").create('fork4.js').open();
+        require("./fork4.js").create(apiBaseURL).open();
     }).appendTo(scrollView);
 
     new tabris.ImageView({
@@ -467,7 +468,7 @@ exports.create = function () {
 
     function getDevices(id) {
         var xhttp = new XMLHttpRequest();
-        var url = "https://something-phoenix913.c9users.io:8081/api/user/devices";
+    var url = apiBaseURL + "/user/devices";
         var params = "id=" + id;
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

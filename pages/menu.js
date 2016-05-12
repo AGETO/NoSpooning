@@ -1,4 +1,4 @@
-exports.create = function () {
+exports.create = function (apiBaseURL) {
 
     var page = new tabris.Page({
         topLevel: true
@@ -25,7 +25,7 @@ exports.create = function () {
         image: {src: "images/mydevices.png"},
         layoutData: {left: 40, top: "#fdev 10", width: 104, height: 116}
     }).on("tap", function () {
-        require("./devices.js").create('devices.js').open();
+        require("./devices.js").create(apiBaseURL).open();
     }).appendTo(page);
 
 
@@ -42,7 +42,7 @@ exports.create = function () {
         image: {src: "images/qr.png"},
         layoutData: {right: 57, top: "#fdev 23", width: 74, height: 86}
     }).on("tap", function () {
-        require("./diagnostics.js").create('diagnostics.js').open();
+        require("./diagnostics.js").create(apiBaseURL).open();
     }).appendTo(page);
 
     new tabris.TextView({
@@ -72,7 +72,7 @@ exports.create = function () {
         image: {src: "images/support.png"},
         layoutData: {left: 50, top: "#news_d 9", width: 84, height: 96}
     }).on("tap", function () {
-        require("./support.js").create('support.js').open();
+        require("./support.js").create(apiBaseURL).open();
     }).appendTo(page);
 
     new tabris.TextView({
@@ -88,7 +88,7 @@ exports.create = function () {
         image: {src: "images/newdevice.jpg"},
         layoutData: {right: 46, top: "#device_d 2", width: 94, height: 106}
     }).on("tap", function () {
-        require("./register.js").create('register.js').open();
+        require("./register.js").create(apiBaseURL).open();
     }).appendTo(page);
 
     new tabris.TextView({

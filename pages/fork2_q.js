@@ -1,11 +1,11 @@
-exports.create = function () {
+exports.create = function (apiBaseURL) {
 
 
     var page = new tabris.Page({
         title: "Device diagnostics",
         topLevel: false
     }).on('backButtonPressed', function () {
-        require("./devices.js").create('devices.js').open();
+        require("./devices.js").create(apiBaseURL).open();
     });
 
 
@@ -68,7 +68,7 @@ exports.create = function () {
         layoutData: {top: 420, centerX: 0},
         text: 'Next'
     }).on("select", function () {
-        require("./fork2_q1.js").create("fork2_q1.js").open();
+        require("./fork2_q1.js").create(apiBaseURL).open();
     }).appendTo(page);
 
     return page;

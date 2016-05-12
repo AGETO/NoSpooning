@@ -1,10 +1,10 @@
-exports.create = function () {
+exports.create = function (apiBaseURL) {
 
     var page = new tabris.Page({
         topLevel: false,
         title: "Get Live Support"
     }).on('backButtonPressed', function () {
-        require("./menu.js").create('menu.js').open();
+        require("./menu.js").create(apiBaseURL).open();
     });
 
 

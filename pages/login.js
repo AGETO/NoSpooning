@@ -3,6 +3,8 @@ var page = new tabris.Page({
     topLevel: true
 });
 
+var apiBaseURL = "https://prototype-backend-andreasmihm.c9users.io:8081/api";
+
 new tabris.ImageView({
     id: "#logo",
     image: {src: "images/forklogo.png"},
@@ -73,7 +75,7 @@ new tabris.Button({
     layoutData: {centerX: 0, top: "#done 10"},
     textColor: "black"
 }).on("select", function () {
-    require("./menu.js").create('menu.js').open();
+	require("./menu.js").create(apiBaseURL).open();
     page.close();
 }).appendTo(page);
 
@@ -104,15 +106,16 @@ function check(selection) {
 
 function loginUser(name, password) {
     var xhttp = new XMLHttpRequest();
-    var url = "https://something-phoenix913.c9users.io:8081/api/user";
+	var url = apiBaseURL + "/user";
     var params = "name=" + name + "&password=" + password;
     xhttp.open("POST", url, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
+	console.log(url);
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             if (xhttp.responseText === "true") {
-                require("./menu.js").create('menu.js').open();
+			console.log("success");
+			require("./menu.js").create(apiBaseURL).open();
                 page.close();
             } else {
                 new tabris.TextView({

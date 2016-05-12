@@ -1,11 +1,11 @@
-exports.create = function () {
+exports.create = function (apiBaseURL) {
 
 
     var page = new tabris.Page({
         title: "Add a Device",
         topLevel: false
     }).on('backButtonPressed', function () {
-        require("./devices.js").create('devices.js').open();
+        require("./devices.js").create(apiBaseURL).open();
     });
 
     new tabris.Button({
@@ -62,7 +62,13 @@ exports.create = function () {
 
         var b = globalResult.text;
         if (/Forket/.test(b)) {
-            require("./fork3.js").create("fork3.js").open();
+            require("./fork3.js").create(apiBaseURL).open();
+        }
+        if (/Lift/.test(b)) {
+            require("./fork1.js").create(apiBaseURL).open();
+        }
+        if (/Down/.test(b)) {
+            require("./fork2.js").create(apiBaseURL).open();
         }
     }
 

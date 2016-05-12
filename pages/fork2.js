@@ -1,7 +1,7 @@
 /**
  * Created by ruibo on 29.04.2016.
  */
-exports.create = function () {
+exports.create = function (apiBaseURL) {
 
     getDevices(1);
 
@@ -9,7 +9,7 @@ exports.create = function () {
         topLevel: false,
         title: "Device Details"
     }).on('backButtonPressed', function () {
-        require("./devices.js").create('devices.js').open();
+        require("./devices.js").create(apiBaseURL).open();
     });
 
     //header
