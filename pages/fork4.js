@@ -241,7 +241,7 @@ exports.create = function (apiBaseURL) {
         text: "Done",
         top: 15,
         left: "#mainthead 15",
-        width: 60,
+        width: 80,
         height: 40
     }).on('tap', function () {
         updateMaintenance(1, 4, "");
@@ -266,7 +266,7 @@ exports.create = function (apiBaseURL) {
 
     function updateMaintenance(id, device_id, message) {
         var xhttp = new XMLHttpRequest();
-        var url = "https://something-phoenix913.c9users.io:8081/api/user/deviceUpdate";
+        var url = apiBaseURL + "/user/deviceUpdate";
         var params = "id=" + id + "&deviceid=" + device_id + "&message=" + message;
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -281,7 +281,7 @@ exports.create = function (apiBaseURL) {
 
     function getDevices(id) {
         var xhttp = new XMLHttpRequest();
-        var url = "https://something-phoenix913.c9users.io:8081/api/user/devices";
+        var url = apiBaseURL + "/user/devices";
         var params = "id=" + id;
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

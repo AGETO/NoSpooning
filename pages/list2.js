@@ -468,7 +468,7 @@ exports.create = function (apiBaseURL) {
         "#filter": {
             layoutData: {left: 280, top: "fdev 80", height: 40, right: 5},
             font: "12px",
-            opacity: 0.9
+            opacity: 0.0
         },
 
         //device 2
